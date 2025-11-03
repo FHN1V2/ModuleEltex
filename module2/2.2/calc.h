@@ -7,7 +7,7 @@ double multiply(int n, ...);
 double divide(int n, ...);
 void display_menu();
 
-// --- Макрос для вызова функции с переменным числом аргументов ---
+//Макрос для вызова функции с переменным числом аргументов
 #define CALL_FUNC(func, n, values) \
     ((n) == 1 ? (values)[0] : \
     (n) == 2 ? func(2, (values)[0], (values)[1]) : \

@@ -1,12 +1,10 @@
 #ifndef CALC_H
 #define CALC_H
 
-// Тип функции с переменным числом аргументов
+
 typedef double (*calc_func)(int, ...);
 
-// Структура описания операции
 typedef struct {
-//   const char* name;
     calc_func func;
 } Operation;
 

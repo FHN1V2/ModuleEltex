@@ -1,6 +1,8 @@
 #include "calc.h"
 #include <stdio.h>
 
+
+//#TODO: переписать проверку деления на ноль из функции в main;
 int main() {
     // Таблица доступных операций
     Operation ops[] = {
@@ -16,7 +18,6 @@ int main() {
     while (1) {
         display_menu();
         scanf("%d", &choice);
-        if (choice == op_count + 1) break;
         if (choice < 1 || choice > op_count + 1) {
             printf("Неверный выбор!\n");
             continue;
@@ -36,7 +37,6 @@ int main() {
             scanf("%lf", &values[i]);
         }
 
-        // Получаем указатель на выбранную функцию
         calc_func func = ops[choice - 1].func;
         double result = CALL_FUNC(func, n, values);
 

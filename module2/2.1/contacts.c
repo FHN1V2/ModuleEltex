@@ -19,9 +19,20 @@ void add_contact() {
     fgets(new_contact.last_name, MAX_FIELD_LEN, stdin);
     new_contact.last_name[strcspn(new_contact.last_name, "\n")] = 0;
 
+    if (strlen(new_contact.last_name)==0)
+    {
+        printf ("Отсутствует фамилия \n");
+        return;
+    }
     printf("Введите имя: ");
     fgets(new_contact.first_name, MAX_FIELD_LEN, stdin);
     new_contact.first_name[strcspn(new_contact.first_name, "\n")] = 0;
+    
+    if (strlen(new_contact.first_name)==0)
+    {
+        printf ("Отсутствует имя \n");
+        return;
+    }
 
     printf("Введите отчество (если нет, нажмите Enter): ");
     fgets(new_contact.middle_name, MAX_FIELD_LEN, stdin);

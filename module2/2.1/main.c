@@ -11,7 +11,6 @@ void display_menu() {
     printf("5. Выход\n");
     printf("Выберите действие: ");
 }
-
 int main() {
     int choice;
     char first_name[MAX_FIELD_LEN]; 

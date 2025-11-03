@@ -21,7 +21,7 @@ double subtract(int n, ...) {
 }
 
 double multiply(int n, ...) {
-    va_list args; 
+    va_list args;
     va_start(args, n);
     double result = 1;
     for (int i = 0; i < n; i++) result *= va_arg(args, double);

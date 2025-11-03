@@ -11,7 +11,7 @@
 typedef struct  {
     char phones[MAX_PHONES][MAX_FIELD_LEN];
     int phone_count;
-}PhoneList ;
+}PhoneList;
 
 typedef struct  {
     char emails[MAX_EMAILS][MAX_FIELD_LEN];
@@ -40,11 +40,11 @@ typedef struct {
     SocialList social_list;
     MessengerList messenger_list;
 } Contact;
-
+/*
 extern Contact contacts[MAX_CONTACTS];
 extern int contact_count;
 extern int next_id;
-
+*/
 void add_contact();
 void edit_contact(int id);
 void delete_contact(int id);
