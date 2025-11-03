@@ -46,10 +46,13 @@ double divide(int n, ...) {
     return result;
 }
 
-void display_menu(Operation ops[], int count) {
-    printf("\n   Калькулятор   \n");
-    for (int i = 0; i < count; i++)
-        printf("%d. %s\n", i + 1, ops[i].name);
-    printf("%d. Выход\n", count + 1);
-    printf("Выберите операцию: ");
+
+    void display_menu() {
+    printf("\n    Калькулятор   \n");
+    printf("1. Сложение\n");
+    printf("2. Вычитание\n");
+    printf("3. Умножение\n");
+    printf("4. Деление\n");
+    printf("5. Выход\n");
+    printf("Введите операцию: ");
 }

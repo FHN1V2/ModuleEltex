@@ -6,7 +6,7 @@ typedef double (*calc_func)(int, ...);
 
 // Структура описания операции
 typedef struct {
-    const char* name;
+//   const char* name;
     calc_func func;
 } Operation;
 
@@ -16,7 +16,7 @@ double subtract(int n, ...);
 double multiply(int n, ...);
 double divide(int n, ...);
 
-void display_menu(Operation ops[], int count);
+void display_menu();
 
 #define CALL_FUNC(func, n, values) \
     ((n) == 1 ? (values)[0] : \

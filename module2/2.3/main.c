@@ -4,19 +4,18 @@
 int main() {
     // Таблица доступных операций
     Operation ops[] = {
-        {"Сложение", add},
-        {"Вычитание", subtract},
-        {"Умножение", multiply},
-        {"Деление", divide}
+        {add},
+        {subtract},
+        {multiply},
+        {divide}
     };
 
     int op_count = sizeof(ops) / sizeof(ops[0]);
     int choice;
 
     while (1) {
-        display_menu(ops, op_count);
+        display_menu();
         scanf("%d", &choice);
-
         if (choice == op_count + 1) break;
         if (choice < 1 || choice > op_count + 1) {
             printf("Неверный выбор!\n");
