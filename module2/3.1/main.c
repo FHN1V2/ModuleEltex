@@ -8,8 +8,6 @@ int main(int argc, char *argv[]) {
         printf("  %s <права>            - показать битовое и цифровое представление (напр. 755 или rwxr-xr--)\n", argv[0]);
         return 1;
     }
-
-    /*
     // Если введён только 1 аргумент — это либо имя файла, либо маска прав
     if (argc == 2) {
         struct stat st;
@@ -26,14 +24,11 @@ int main(int argc, char *argv[]) {
             print_perm_modes(mode);
         }
     }
-*/
+
     // Если введено 2 аргумента (файл и команда)
     if (argc == 3) {
         struct stat st;
-//        if (stat(argv[1], &st) != 0) {
-//           perror("stat");
-//            return 1;
-//        }
+
 
         mode_t mode = st.st_mode;
         mode_t new_mode = modify_perms(mode, argv[2]);

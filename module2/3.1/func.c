@@ -1,11 +1,10 @@
 #include "perm.h"
-
-// Преобразование цифрового представления (например 755)
+// символьные 
 mode_t parse_octal_perms(const char *perm_str) {
     return strtol(perm_str, NULL, 8);
 }
 
-// Преобразование буквенного представления (например rwxr-xr--)
+// буквенные
 mode_t parse_symbolic_perms(const char *perm_str) {
     if (strlen(perm_str) != 9) {
         fprintf(stderr, "Ошибка: буквенное представление должно содержать 9 символов\n");
@@ -49,7 +48,7 @@ void show_file_permissions(const char *filename) {
     print_perm_modes(st.st_mode);
 }
 
-// Изменить права в памяти (аналог chmod u+x,g-w и т.п.)
+// Изменение прав
 mode_t modify_perms(mode_t current, const char *cmd) {
     char *commands = strdup(cmd);
     char *token = strtok(commands, ",");
