@@ -7,7 +7,7 @@ mode_t parse_octal_perms(const char *perm_str) {
 // буквенные
 mode_t parse_symbolic_perms(const char *perm_str) {
     if (strlen(perm_str) != 9) {
-        fprintf(stderr, "Ошибка: буквенное представление должно содержать 9 символов\n");
+        printf("Ошибка: буквенное представление должно содержать 9 символов\n");
         return 0;
     }
 
@@ -40,7 +40,6 @@ void print_perm_modes(mode_t mode) {
 void show_file_permissions(const char *filename) {
     struct stat st;
     if (stat(filename, &st) != 0) {
-        perror("stat");
         return;
     }
 
@@ -70,19 +69,33 @@ mode_t modify_perms(mode_t current, const char *cmd) {
         for (int w = 0; who[w]; w++) {
             int shift = 0;
             switch (who[w]) {
-                case 'u': shift = OWNER_SHIFT; break;
-                case 'g': shift = GROUP_SHIFT; break;
-                case 'o': shift = OTHER_SHIFT; break;
-                default: continue;
+                case 'u': 
+                    shift = OWNER_SHIFT; 
+                    break;
+                case 'g': 
+                    shift = GROUP_SHIFT;
+                    break;
+                case 'o': 
+                    shift = OTHER_SHIFT;
+                    break;
+                default: 
+                    continue;
             }
 
             for (int p = 0; perms[p]; p++) {
                 mode_t mask = 0;
                 switch (perms[p]) {
-                    case 'r': mask = 4 << shift; break;
-                    case 'w': mask = 2 << shift; break;
-                    case 'x': mask = 1 << shift; break;
-                    default: continue;
+                    case 'r': 
+                        mask = 4 << shift;
+                        break;
+                    case 'w': 
+                        mask = 2 << shift;
+                        break;
+                    case 'x': 
+                        mask = 1 << shift;
+                        break;
+                    default: 
+                        continue;
                 }
 
                 if (op == '+')

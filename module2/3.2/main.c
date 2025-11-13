@@ -4,8 +4,8 @@
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {
-        fprintf(stderr, "Использование: %s <gateway_ip> <subnet_mask> <N>\n", argv[0]);
-        return EXIT_FAILURE;
+        printf("Использование: %s <gateway_ip> <subnet_mask> <N>\n", argv[0]);
+        return 0;
     }
 
     const char *gateway_ip_str = argv[1];
@@ -14,5 +14,5 @@ int main(int argc, char *argv[]) {
 
     process_packets(gateway_ip_str, mask_str, N);
 
-    return EXIT_SUCCESS;
+    return 0;
 }

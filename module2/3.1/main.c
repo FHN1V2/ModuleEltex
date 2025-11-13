@@ -26,18 +26,18 @@ int main(int argc, char *argv[]) {
     }
 
     // Если введено 2 аргумента (файл и команда)
-    if (argc == 3) {
-        struct stat st;
+if (argc == 3) {
+    struct stat st;
+    mode_t mode = st.st_mode & 0777; // оставляем только биты прав доступа
+    mode_t new_mode = modify_perms(mode, argv[2]);
 
+    printf("Исходные права:\n");
+    print_perm_modes(mode);
 
-        mode_t mode = st.st_mode;
-        mode_t new_mode = modify_perms(mode, argv[2]);
-        printf("Исходные права:\n");
-        print_perm_modes(mode);
-        printf("\nПосле применения команды '%s':\n", argv[2]);
-        print_perm_modes(new_mode);
-        printf("\n(Изменения не применяются к файлу — только показываются)\n");
-    }
+    printf("\nПосле применения команды '%s':\n", argv[2]);
+    print_perm_modes(new_mode);
+    printf("\n(Изменения не применяются к файлу — только показываются)\n");
+}
 
     else {
         fprintf(stderr, "Ошибка: слишком много аргументов.\n");
