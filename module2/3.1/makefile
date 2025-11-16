@@ -1,2 +1,2 @@
 all:
-	gcc main.c func.c -o testfile.exe
+	gcc main.c func.c -o permission.exe

@@ -29,7 +29,7 @@ void print_perm_modes(mode_t mode) {
     letters[9] = '\0';
 
     printf("Буквенное представление: %s\n", letters);
-    printf("Цифровое (восьмеричное): %03o\n", mode & 0777);
+    printf("Цифровое (восьмеричное): %03o\n", mode );
     printf("Битовое представление:   ");
     for (int i = 8; i >= 0; i--)
         printf("%d", (mode & (1 << i)) ? 1 : 0);
