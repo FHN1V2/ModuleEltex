@@ -64,7 +64,7 @@ void process_with_fork(char *argv[], int argc)
     int mid = argc / 2;
 
     pid_t pid = fork();
-
+//доьавить обработку ошибок
     if (pid == 0)
     {
         printf(" Дочерний процесс (PID: %d) \n", getpid());
